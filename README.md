@@ -26,7 +26,7 @@ $smotreshka->subscriptions();
 `$node` note in service
 
 ## Methods
-###`account_create($email, $login = null, $password = null ,$purchases = null, $info = null)` create user account in service
+###Method `account_create($email, $login = null, $password = null ,$purchases = null, $info = null)` create user account in service
 
 ```php
 $smotreshka->account_create($email);
@@ -42,14 +42,14 @@ $smotreshka->account_create($email);
 `$info: object` any data
 
 
-###`account_show($id)` show user account data
+###Method `account_show($id)` show user account data
 
 ```php
 $smotreshka->account_show($id);
 ```
 `$id` user account id in service
 
-###`account_update($id, $info)`
+###Method `account_update($id, $info)`
 ```php
 $smotreshka->account_update($id, $info);
 ```
