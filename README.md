@@ -26,7 +26,7 @@ $smotreshka->subscriptions();
 `$node` note in service
 
 ## Methods
-### `account_create($email, $login = null, $password = null ,$purchases = null, $info = null)` create user account in service
+#### `account_create($email, $login = null, $password = null ,$purchases = null, $info = null)` create user account in service
 
 ```php
 $smotreshka->account_create($email);
@@ -49,19 +49,22 @@ $smotreshka->account_show($id);
 ```
 `$id` user account id in service
 
-### account_update($id, $info)
+#### account_update($id, $info)
 ```php
 $smotreshka->account_update($id, $info);
 ```
 `$id` user account id in service
 `$info: object` any data
 
-    public function account_reset_password($id, $password){
-        if (isset($password)) {$data = array('password' => $password);} else {$data = array();}
-        $http = Http::post($this->url.'accounts/'.$id.'/reset-password', json_decode($data));
-        return $http->json();
-    }
+#### `account_reset_password($id, $password)`
+```php
+$smotreshka->account_reset_password($id, $password)
+```
+`$id` user account id in service
+`$password` new password 5 to 200 chars
 
+
+`$info: object` any data
     public function account_delete($id){
         $http = Http::delete($this->url.'accounts/'.$id, json_encode(array()));
         return $http->json();
