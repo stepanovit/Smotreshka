@@ -1,12 +1,13 @@
 # Smotreshka
-Класс для работы с облачной тв-платформой Смотрешка
+Класс для работы с облачной тв-платформой Смотрешка(https://smotreshka.tv)
 
-## Installation
+## Requirement
+PHP > 5.2
 
 ## Usage
 ### Include required files in the application
 
-Include `Smotreshka` class to php file
+Include `Smotreshka` class to .php file
 
 ```php
 require_once('Smotreshka.php');
@@ -23,10 +24,80 @@ $smotreshka->subscriptions();
 ```
 
 `$operator` login in service
+
 `$node` note in service
 
 ## Methods
+`account_create($email, $login = null, $password = null ,$purchases = null, $info = null)` create user account in service
 
+`$email` email for send password. Required.
+`$login` any chars
+`$password` 5 to 200 chars
+`$purchases: array()` array of subscribes
+`$info: object` any data
+
+
+    public function account_show($id){
+        $http = Http::get($this->url.'accounts/'.$id);
+        return $http->json();
+    }
+
+    public function account_update($id, $info){
+        $http = Http::post($this->url.'accounts/'.$id, json_encode(array('info' => $info)));
+        return $http->json();
+    }
+
+    public function account_reset_password($id, $password){
+        if (isset($password)) {$data = array('password' => $password);} else {$data = array();}
+        $http = Http::post($this->url.'accounts/'.$id.'/reset-password', json_decode($data));
+        return $http->json();
+    }
+
+    public function account_delete($id){
+        $http = Http::delete($this->url.'accounts/'.$id, json_encode(array()));
+        return $http->json();
+    }
+
+    public function accounts($count = null, $page = null){
+        $params = array();
+        if (isset($page)) $params['page_num'] = $page;
+        if (isset($count)) $data['page_sie'] = $count;
+
+        if (count($params) > 0) $query = '?'.http_build_query($params);
+
+        $http = Http::get($this->url.'accounts'.$query);
+        return $http->json();
+    }
+
+    public function account_subscriptions($id){
+        $http = Http::get($this->url.'accounts/'.$id.'/subscriptions');
+        return $http->json();
+    }
+
+    public function account_subscriptions_create($id, $subscription_id){
+        $data = array(
+            'id' => $subscription_id,
+            'valid' => true
+        );
+
+        $http = Http::post($this->url.'accounts/'.$id.'/subscriptions', json_encode($data));
+        return $http->json();
+    }
+
+    public function account_subscriptions_delete($id, $subscription_id){
+        $data = array(
+            'id' => $subscription_id,
+            'valid' => false
+        );
+
+        $http = Http::post($this->url.'accounts/'.$id.'/subscriptions', json_encode($data));
+        return $http->json();
+    }
+
+    public function get_subscriptions(){
+        $http = Http::get($this->url.'subscriptions');
+        return $http->json();
+    }
 
 
 
