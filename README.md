@@ -33,14 +33,19 @@ $smotreshka->subscriptions();
 ```php
 $smotreshka->account_create($email);
 ```
-`$email` email for send password. Required
+`$email required` email for send password
+
 `$login` any chars
+
 `$password` 5 to 200 chars
+
 `$purchases: array()` array of subscribes
+
 `$info: object` any data
 
 
 `account_show($id)` show user account data
+
 ```php
 $smotreshka->account_show($id);
 ```
