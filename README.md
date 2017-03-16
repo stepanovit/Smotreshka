@@ -31,16 +31,19 @@ $smotreshka->subscriptions();
 `account_create($email, $login = null, $password = null ,$purchases = null, $info = null)` create user account in service
 
 `$email` email for send password. Required.
+
 `$login` any chars
+
 `$password` 5 to 200 chars
+
 `$purchases: array()` array of subscribes
+
 `$info: object` any data
 
 
-    public function account_show($id){
-        $http = Http::get($this->url.'accounts/'.$id);
-        return $http->json();
-    }
+`function account_show($id)` show user account data
+
+`$id` user account id in service
 
     public function account_update($id, $info){
         $http = Http::post($this->url.'accounts/'.$id, json_encode(array('info' => $info)));
