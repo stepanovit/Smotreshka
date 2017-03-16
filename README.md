@@ -28,7 +28,7 @@ $smotreshka->subscriptions();
 `$node` note in service
 
 ## Methods
-`account_create($email, $login = null, $password = null ,$purchases = null, $info = null)` create user account in service
+####`account_create($email, $login = null, $password = null ,$purchases = null, $info = null)` create user account in service
 
 `$email` email for send password. Required.
 
