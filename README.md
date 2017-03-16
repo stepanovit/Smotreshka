@@ -2,7 +2,7 @@
 Класс для работы с облачной тв-платформой Смотрешка(https://smotreshka.tv)
 
 ## Requirement
-PHP > 5.2
+PHP >= 5.2
 
 ## Usage
 ### Include required files in the application
@@ -12,8 +12,6 @@ Include `Smotreshka` class to .php file
 ```php
 require_once('Smotreshka.php');
 ```
-
-### Configuration in Rails
 
 ### How to use
 Initialize new Class, and use methods like
@@ -28,7 +26,7 @@ $smotreshka->subscriptions();
 `$node` note in service
 
 ## Methods
-`account_create($email, $login = null, $password = null ,$purchases = null, $info = null)` create user account in service
+###`account_create($email, $login = null, $password = null ,$purchases = null, $info = null)` create user account in service
 
 ```php
 $smotreshka->account_create($email);
@@ -44,17 +42,19 @@ $smotreshka->account_create($email);
 `$info: object` any data
 
 
-`account_show($id)` show user account data
+###`account_show($id)` show user account data
 
 ```php
 $smotreshka->account_show($id);
 ```
 `$id` user account id in service
 
-    public function account_update($id, $info){
-        $http = Http::post($this->url.'accounts/'.$id, json_encode(array('info' => $info)));
-        return $http->json();
-    }
+###`account_update($id, $info)`
+```php
+$smotreshka->account_update($id, $info);
+```
+`$id` user account id in service
+`$info: object` any data
 
     public function account_reset_password($id, $password){
         if (isset($password)) {$data = array('password' => $password);} else {$data = array();}
