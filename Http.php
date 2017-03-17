@@ -1,4 +1,12 @@
 <?php
+/**
+ * Http class CURL wrapper
+ * User: Stepanovit
+ * Date: 16.03.2017
+ *
+ * VERSION = 0.0.1
+ *
+ */
 
 class Http{
     public $curl;

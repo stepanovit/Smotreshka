@@ -1,4 +1,13 @@
 <?php
+/**
+ * Smotreshka API
+ * User: Stepanovit
+ * Date: 16.03.2017
+ *
+ * VERSION = 0.1.0
+ *
+ */
+
 require_once('Http.php');
 
 class Smotreshka{

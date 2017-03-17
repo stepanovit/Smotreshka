@@ -1,8 +1,11 @@
 # Smotreshka
 Класс для работы с облачной тв-платформой Смотрешка(https://smotreshka.tv)
 
+VERSION = 0.1.0
+
 ## Requirement
 PHP >= 5.2
+Http class CURL wrapper ( https://github.com/stepanovit/http_curl_wrapper )
 
 ## Usage
 ### Include required files in the application
@@ -26,7 +29,8 @@ $smotreshka->subscriptions();
 `$node` note in service
 
 ## Methods
-#### `account_create($email, $login = null, $password = null ,$purchases = null, $info = null)` create user account in service
+#### `public function account_create($email, $login = null, $password = null ,$purchases = null, $info = null)`
+Create user account in service
 
 ```php
 $smotreshka->account_create($email);
@@ -42,83 +46,82 @@ $smotreshka->account_create($email);
 `$info: object` any data
 
 
-#### `account_show($id)` show user account data
+#### `public function account_show($id)`
+Show user account data
 
 ```php
 $smotreshka->account_show($id);
 ```
 `$id` user account id in service
 
-#### account_update($id, $info)
+
+#### `public function account_update($id, $info)`
 ```php
 $smotreshka->account_update($id, $info);
 ```
 `$id` user account id in service
+
 `$info: object` any data
 
-#### `account_reset_password($id, $password)`
+
+#### `public function account_reset_password($id, $password)`
 ```php
 $smotreshka->account_reset_password($id, $password)
 ```
 `$id` user account id in service
+
 `$password` new password 5 to 200 chars
 
 
-`$info: object` any data
-    public function account_delete($id){
-        $http = Http::delete($this->url.'accounts/'.$id, json_encode(array()));
-        return $http->json();
-    }
-
-    public function accounts($count = null, $page = null){
-        $params = array();
-        if (isset($page)) $params['page_num'] = $page;
-        if (isset($count)) $data['page_sie'] = $count;
-
-        if (count($params) > 0) $query = '?'.http_build_query($params);
-
-        $http = Http::get($this->url.'accounts'.$query);
-        return $http->json();
-    }
-
-    public function account_subscriptions($id){
-        $http = Http::get($this->url.'accounts/'.$id.'/subscriptions');
-        return $http->json();
-    }
-
-    public function account_subscriptions_create($id, $subscription_id){
-        $data = array(
-            'id' => $subscription_id,
-            'valid' => true
-        );
-
-        $http = Http::post($this->url.'accounts/'.$id.'/subscriptions', json_encode($data));
-        return $http->json();
-    }
-
-    public function account_subscriptions_delete($id, $subscription_id){
-        $data = array(
-            'id' => $subscription_id,
-            'valid' => false
-        );
-
-        $http = Http::post($this->url.'accounts/'.$id.'/subscriptions', json_encode($data));
-        return $http->json();
-    }
-
-    public function get_subscriptions(){
-        $http = Http::get($this->url.'subscriptions');
-        return $http->json();
-    }
+#### `public function account_delete($id)`
+```php
+$smotreshka->account_delete($id)
+```
+`$id` user account id in service
 
 
+#### `public function accounts($count = null, $page = null)`
+```php
+$smotreshka->accounts()
+```
+`$count` count element on page
+
+`$page` page number
 
 
+#### `public function account_subscriptions($id)`
+```php
+$smotreshka->account_subscriptions($id)
+```
+`$id` user account id in service
 
+
+#### `public function account_subscriptions_create($id, $subscription_id)`
+```php
+$smotreshka->account_subscriptions_create($id, $subscription_id)
+```
+`$id` user account id in service
+
+`$subscription_id` subscription id
+
+
+#### `public function account_subscriptions_delete($id, $subscription_id)`
+```php
+$smotreshka->account_subscriptions_delete($id, $subscription_id)
+```
+`$id` user account id in service
+
+`$subscription_id` subscription id
+
+
+#### `public function get_subscriptions()`
+Get all available subscriptions
+```php
+$smotreshka->get_subscriptions()
+```
 
 ## Contributing
-
-1. Fork it ( https://github.com/Wondersoft/olap-view/fork )
+1. Fork it ( https://github.com/stepanovit/Smotreshka/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
