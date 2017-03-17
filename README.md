@@ -5,6 +5,7 @@ VERSION = 0.1.0
 
 ## Requirement
 PHP >= 5.2
+
 Http class CURL wrapper ( https://github.com/stepanovit/http_curl_wrapper )
 
 ## Usage
