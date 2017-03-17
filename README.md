@@ -1,7 +1,7 @@
 # Smotreshka
 Класс для работы с облачной тв-платформой Смотрешка(https://smotreshka.tv)
 
-VERSION = 0.1.0
+VERSION = 0.1.1
 
 ## Requirement
 PHP >= 5.2
@@ -97,28 +97,28 @@ $smotreshka->account_subscriptions($id)
 `$id` user account id in service
 
 
-#### `public function account_subscriptions_create($id, $subscription_id)`
+#### `public function account_subscription_create($id, $subscription_id)`
 ```php
-$smotreshka->account_subscriptions_create($id, $subscription_id)
+$smotreshka->account_subscription_create($id, $subscription_id)
 ```
 `$id` user account id in service
 
 `$subscription_id` subscription id
 
 
-#### `public function account_subscriptions_delete($id, $subscription_id)`
+#### `public function account_subscription_delete($id, $subscription_id)`
 ```php
-$smotreshka->account_subscriptions_delete($id, $subscription_id)
+$smotreshka->account_subscription_delete($id, $subscription_id)
 ```
 `$id` user account id in service
 
 `$subscription_id` subscription id
 
 
-#### `public function get_subscriptions()`
+#### `public function subscriptions()`
 Get all available subscriptions
 ```php
-$smotreshka->get_subscriptions()
+$smotreshka->subscriptions()
 ```
 
 ## Contributing

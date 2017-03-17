@@ -4,7 +4,7 @@
  * User: Stepanovit
  * Date: 16.03.2017
  *
- * VERSION = 0.1.0
+ * VERSION = 0.1.1
  *
  */
 
@@ -71,7 +71,7 @@ class Smotreshka{
         return $http->json();
     }
 
-    public function account_subscriptions_create($id, $subscription_id){
+    public function account_subscription_create($id, $subscription_id){
         $data = array(
             'id' => $subscription_id,
             'valid' => true
@@ -81,7 +81,7 @@ class Smotreshka{
         return $http->json();
     }
 
-    public function account_subscriptions_delete($id, $subscription_id){
+    public function account_subscription_delete($id, $subscription_id){
         $data = array(
             'id' => $subscription_id,
             'valid' => false
@@ -91,7 +91,7 @@ class Smotreshka{
         return $http->json();
     }
 
-    public function get_subscriptions(){
+    public function subscriptions(){
         $http = Http::get($this->url.'subscriptions');
         return $http->json();
     }
