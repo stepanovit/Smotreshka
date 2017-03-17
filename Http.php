@@ -9,7 +9,7 @@
  */
 
 class Http{
-    public $curl;
+    private $curl;
     public $url;
     public $method;
     public $request;
@@ -80,7 +80,7 @@ class Http{
 
     private function exec(){
         $result = curl_exec($this->curl);
-        $this->info = curl_getinfo ($this->curl);
+        $this->info = curl_getinfo($this->curl);
         curl_close($this->curl);
         $this->response = $result;
     }
