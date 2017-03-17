@@ -21,7 +21,7 @@ require_once('Smotreshka.php');
 Initialize new Class, and use methods like
 
 ```php
-$smotreshka = new $Smotreshka($operator, $node);
+$smotreshka = new Smotreshka($operator, $node);
 $smotreshka->subscriptions();
 ```
 
