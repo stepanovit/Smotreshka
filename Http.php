@@ -76,6 +76,8 @@ class Http{
             curl_setopt($this->curl, CURLOPT_POSTFIELDS, $this->request);
         }
         curl_setopt($this->curl, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($this->curl,CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($this->curl, CURLOPT_SSL_VERIFYHOST, false);
     }
 
     private function exec(){
