@@ -4,7 +4,7 @@
  * User: Stepanovit
  * Date: 16.03.2017
  *
- * VERSION = 0.1.1
+ * VERSION = 0.1.2
  *
  */
 
@@ -18,7 +18,7 @@ class Smotreshka{
     public function __construct($operator, $node){
         $this->operator = $operator;
         $this->node = $node;
-        $this->url = 'http://'.$this->operator.'.'.$this->node.'.lfstrm.tv/v2/';
+        $this->url = 'https://'.$this->operator.'.'.$this->node.'.lfstrm.tv/v2/';
     }
 
     public function account_create($email, $login = null, $password = null ,$purchases = null, $info = null){
